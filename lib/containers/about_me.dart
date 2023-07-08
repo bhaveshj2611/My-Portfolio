@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_webapp/widgets/bird.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../utils/constants.dart';
@@ -53,14 +54,22 @@ Widget mobileAbout() {
           const SizedBox(
             height: 50,
           ),
-          Container(
-            width: 700,
-            color: const Color.fromARGB(48, 33, 149, 243),
-            padding: const EdgeInsets.all(20),
-            child: Text(
-              aboutMe,
-              textAlign: TextAlign.justify,
-              style: const TextStyle(fontWeight: FontWeight.w500),
+          Card(
+            borderOnForeground: true,
+            shape: const BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(30))),
+            surfaceTintColor: Colors.white,
+            color: const Color.fromARGB(255, 197, 231, 255),
+            elevation: 10,
+            child: Container(
+              width: 700,
+              // color: const Color.fromARGB(48, 33, 149, 243),
+              padding: const EdgeInsets.all(20),
+              child: Text(
+                aboutMe,
+                textAlign: TextAlign.justify,
+                style: const TextStyle(fontWeight: FontWeight.w500),
+              ),
             ),
           ),
           const SizedBox(
@@ -100,33 +109,30 @@ Widget desktopAbout() {
           const SizedBox(
             height: 50,
           ),
-          Container(
-            height: 400,
-            width: double.infinity,
-            color: const Color.fromARGB(48, 33, 149, 243),
+          Card(
+            shape: const BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(30))),
+            surfaceTintColor: Colors.white,
+            color: const Color.fromARGB(255, 255, 255, 255),
+            elevation: 20,
             child: Wrap(
+              alignment: WrapAlignment.spaceEvenly,
               children: [
                 Container(
                   width: 700,
-                  padding: const EdgeInsets.all(20),
-                  child: Text(
-                    aboutMe,
-                    textAlign: TextAlign.justify,
-                    style: const TextStyle(fontWeight: FontWeight.w500),
-                  ),
-                ),
-                const SizedBox(
-                  width: 100,
-                ),
-                if (w! > 1160)
-                  Container(
-                    height: 350,
-                    width: 350,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(aboutFlutter), fit: BoxFit.cover),
+                  padding: const EdgeInsets.all(30),
+                  child: Center(
+                    child: Text(
+                      aboutMe,
+                      textAlign: TextAlign.justify,
+                      style: const TextStyle(fontWeight: FontWeight.w500),
                     ),
                   ),
+                ),
+                // const SizedBox(
+                //   width: 50,
+                // ),
+                if (w! > 1160) const Bird(),
               ],
             ),
           )

@@ -66,19 +66,19 @@ class _ProjectListState extends State<ProjectList> {
                   top: 20,
                   child: Container(
                     child: Text(widget.projectText,
-                        textAlign: isMobile ? TextAlign.center : null,
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: isMobile ? 11 : 25,
                             fontWeight: FontWeight.bold)),
                   ),
                 ),
-                Positioned(
+                const Positioned(
                     top: 250,
                     right: 30,
                     child: FaIcon(
                       FontAwesomeIcons.github,
-                      size: isMobile ? 30 : 50,
+                      size: 30,
                       color: Colors.white,
                     )),
                 Positioned(
@@ -115,8 +115,8 @@ class _ProjectListState extends State<ProjectList> {
                 Container(
                   child: Container(
                     padding: const EdgeInsets.all(10),
-                    width: isMobile ? 300 : 1100,
-                    height: isMobile ? 300 : 300,
+                    width: 1100,
+                    height: 300,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         image: DecorationImage(
@@ -128,7 +128,7 @@ class _ProjectListState extends State<ProjectList> {
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 400),
                     height: isHovering ? 300 : 0,
-                    width: isMobile ? 300 : 1100,
+                    width: 1100,
                     decoration: BoxDecoration(
                         borderRadius: isHovering
                             ? BorderRadius.circular(50)
@@ -146,7 +146,6 @@ class _ProjectListState extends State<ProjectList> {
                     duration: const Duration(milliseconds: 600),
                     child: isHovering
                         ? Text(widget.projectText,
-                            textAlign: isMobile ? TextAlign.center : null,
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: isMobile ? 11 : 25,
@@ -154,12 +153,12 @@ class _ProjectListState extends State<ProjectList> {
                         : const Text(''),
                   ),
                 ),
-                Positioned(
-                    top: isMobile ? 250 : 20,
+                const Positioned(
+                    top: 20,
                     right: 30,
                     child: FaIcon(
                       FontAwesomeIcons.github,
-                      size: isMobile ? 30 : 50,
+                      size: 50,
                       color: Colors.white,
                     )),
                 Positioned(

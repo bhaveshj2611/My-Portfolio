@@ -23,6 +23,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   final aboutKey = GlobalKey();
   final projectKey = GlobalKey();
   final contactKey = GlobalKey();
+  bool backToTop = false;
+
+  @override
+  void initState() {
+    _scrollController.addListener(() {
+      setState(() {
+        backToTop = _scrollController.offset > 400 ? true : false;
+      });
+    });
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -71,7 +82,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           text,
           style: TextStyle(
               color: const Color.fromARGB(255, 0, 44, 79),
-              fontSize: isMobile ? 10 : 16),
+              fontSize: isMobile ? 12 : 16),
         ));
   }
 
@@ -84,121 +95,156 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       isMobile = true;
     }
     return Scaffold(
-      body: SingleChildScrollView(
-        controller: _scrollController,
-        child: Column(
-          children: [
-            isMobile
-                ? SingleChildScrollView(
-                    child: Container(
-                        width: double.infinity,
-                        margin: const EdgeInsets.symmetric(
-                            horizontal: 0, vertical: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            navButton('About Me', aboutKey),
-                            navButton('Skills', skillKey),
-                            navButton('Projects', projectKey),
-                            TextButton(
-                                onPressed: () {
-                                  setState(() {
-                                    launchUrl(resumeUrl,
-                                        mode: LaunchMode.externalApplication);
-                                  });
-                                },
-                                child: const Text(
-                                  'Resume',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 0, 44, 79),
-                                      fontSize: 10),
-                                )),
-                            navButton('Contact', contactKey),
-                          ],
-                        )),
-                  )
-                : Container(
-                    margin: const EdgeInsets.symmetric(
-                        horizontal: 80, vertical: 20),
-                    child: Row(
-                      children: [
-                        navButton('About Me', aboutKey),
-                        const SizedBox(
-                          width: 10,
+      body: Stack(children: [
+        SingleChildScrollView(
+          controller: _scrollController,
+          child: Column(
+            children: [
+              isMobile
+                  ? SingleChildScrollView(
+                      child: Container(
+                          width: double.infinity,
+                          margin: const EdgeInsets.symmetric(
+                              horizontal: 0, vertical: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              navButton('About Me', aboutKey),
+                              navButton('Skills', skillKey),
+                              navButton('Projects', projectKey),
+                              TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      launchUrl(resumeUrl,
+                                          mode: LaunchMode.externalApplication);
+                                    });
+                                  },
+                                  child: const Text(
+                                    'Resume',
+                                    style: TextStyle(
+                                        color: Color.fromARGB(255, 0, 44, 79),
+                                        fontSize: 10),
+                                  )),
+                              navButton('Contact', contactKey),
+                            ],
+                          )),
+                    )
+                  : Container(
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 80, vertical: 20),
+                      child: Row(
+                        children: [
+                          navButton('About Me', aboutKey),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          navButton('Skills', skillKey),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          navButton('Projects', projectKey),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  launchUrl(resumeUrl,
+                                      mode: LaunchMode.externalApplication);
+                                });
+                              },
+                              child: const Text(
+                                'Resume',
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 0, 44, 79),
+                                    fontSize: 16),
+                              )),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          navButton('Contact', contactKey),
+                        ],
+                      )),
+              isMobile
+                  ? Container(
+                      width: double.infinity,
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [
+                              Color.fromARGB(255, 16, 70, 124),
+                              Color.fromARGB(255, 10, 120, 210)
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight),
+                      ),
+                      child: const Column(children: [
+                        SizedBox(
+                          height: 60,
                         ),
-                        navButton('Skills', skillKey),
-                        const SizedBox(
-                          width: 10,
+                        MainContainer(),
+                        SizedBox(
+                          height: 30,
+                        )
+                      ]),
+                    )
+                  : Container(
+                      width: 1100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        gradient: const LinearGradient(
+                            colors: [
+                              Color.fromARGB(255, 16, 70, 124),
+                              Color.fromARGB(255, 10, 120, 210)
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight),
+                      ),
+                      child: const Column(children: [
+                        SizedBox(
+                          height: 60,
                         ),
-                        navButton('Projects', projectKey),
-                        const SizedBox(
-                          width: 10,
+                        MainContainer(),
+                        SizedBox(
+                          height: 30,
                         ),
-                        TextButton(
-                            onPressed: () {
-                              setState(() {
-                                launchUrl(resumeUrl,
-                                    mode: LaunchMode.externalApplication);
-                              });
-                            },
-                            child: const Text(
-                              'Resume',
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 0, 44, 79),
-                                  fontSize: 16),
-                            )),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        navButton('Contact', contactKey),
-                      ],
-                    )),
-            isMobile
-                ? Container(
-                    width: double.infinity,
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(colors: [
-                        Color.fromARGB(255, 16, 70, 124),
-                        Color.fromARGB(255, 10, 120, 210)
-                      ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+                      ]),
                     ),
-                    child: const Column(children: [
-                      SizedBox(
-                        height: 60,
-                      ),
-                      MainContainer(),
-                      SizedBox(
-                        height: 30,
-                      )
-                    ]),
-                  )
-                : Container(
-                    width: 1100,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      gradient: const LinearGradient(colors: [
-                        Color.fromARGB(255, 16, 70, 124),
-                        Color.fromARGB(255, 10, 120, 210)
-                      ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-                    ),
-                    child: const Column(children: [
-                      SizedBox(
-                        height: 60,
-                      ),
-                      MainContainer(),
-                      SizedBox(
-                        height: 30,
-                      ),
-                    ]),
-                  ),
-            AboutMe(key: aboutKey),
-            Skills(key: skillKey),
-            Projects(key: projectKey),
-            Contact(key: contactKey),
-            const Footer(),
-          ],
+              AboutMe(key: aboutKey),
+              Skills(key: skillKey),
+              Projects(key: projectKey),
+              Contact(key: contactKey),
+              const Footer(),
+            ],
+          ),
         ),
-      ),
+        isMobile
+            ? const SizedBox()
+            : Positioned(
+                right: 30,
+                bottom: 30,
+                child: bTT(_scrollController, backToTop)),
+      ]),
     );
   }
+}
+
+Widget bTT(ScrollController scrollController, bool backToTop) {
+  return backToTop
+      ? Container(
+          child: ElevatedButton(
+              onPressed: () {
+                scrollController.animateTo(0,
+                    duration: const Duration(milliseconds: 700),
+                    curve: Curves.easeInOut);
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  minimumSize: const Size(150, 50)),
+              child: const Icon(
+                Icons.arrow_drop_up,
+                color: Colors.white,
+                size: 50,
+              )),
+        )
+      : const SizedBox();
 }

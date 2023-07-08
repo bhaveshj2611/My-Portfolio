@@ -18,23 +18,23 @@ class _SkillLogoState extends State<SkillLogo> {
     if (w! < 400 && h! < 900) {
       isMobile = true;
     }
-    return InkWell(
-      onTap: () {},
-      onHover: (value) {
-        setState(() {
-          isHovering = value;
-        });
-      },
-      child: isMobile
-          ? Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Image.asset(
-                widget.logoName,
-                width: 50,
-                fit: BoxFit.cover,
-              ),
-            )
-          : AnimatedContainer(
+    return isMobile
+        ? Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Image.asset(
+              widget.logoName,
+              width: 50,
+              fit: BoxFit.cover,
+            ),
+          )
+        : InkWell(
+            onTap: () {},
+            onHover: (value) {
+              setState(() {
+                isHovering = value;
+              });
+            },
+            child: AnimatedContainer(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               duration: const Duration(milliseconds: 200),
               curve: Curves.easeInOut,
@@ -45,6 +45,6 @@ class _SkillLogoState extends State<SkillLogo> {
                 fit: BoxFit.cover,
               ),
             ),
-    );
+          );
   }
 }
