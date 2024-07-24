@@ -17,3 +17,13 @@
 **Live Preview: 👉🏽 [PORTFOLIO](https://bhaveshj.web.app/)**
 
 ✨ Hello there, I'm Bhavesh Joshi. This is my personal potrfolio webapp, built with Flutter. Do check it out!
+
+Designed & Developed it using Flutter,Dart and utilizing Flutter Web's capabilities. Built a sleek, responsive web application that adapts to any device.
+
+- A clean, intuitive design that catches the user's eye
+- Smooth animations and transitions for an engaging user experience
+- Optimized performance, ensuring quick load times across platforms
+
+Leveraging Firebase Hosting, I've ensured my portfolio is always accessible and scalable.
+
+You can access it from https://bhaveshj.web.app
