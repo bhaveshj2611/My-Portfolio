@@ -28,7 +28,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   bool backToTop = false;
   bool isLoading = true;
 
-
   @override
   void initState() {
     _scrollController.addListener(() {
