@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio_webapp/containers/about_me.dart';
@@ -41,6 +40,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     Future.delayed(const Duration(seconds: 3), () {
       setState(() {
         isLoading = false;
+        backToTop = _scrollController.offset > 400;
+      });
+    });
+
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        isLoading = false;
       });
     });
     super.initState();
@@ -51,7 +57,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     _scrollController.dispose();
     super.dispose();
   }
-
 
   void _scrollTo(GlobalKey key) {
     final RenderObject? renderObject = key.currentContext?.findRenderObject();
@@ -105,7 +110,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     if (w! < 700) {
       isMobile = true;
     }
-
 
     if (isLoading) {
       return const LoadingPage();

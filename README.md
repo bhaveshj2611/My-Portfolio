@@ -14,6 +14,6 @@
 ![GitHub Total Downloads](https://img.shields.io/github/downloads/bhaveshj2611/My-Portfolio/total?color=4a2600&label=Total%20Downloads&style=flat-square)
 ![Website Status](https://img.shields.io/website?down_message=Down%20%26%20Offline&label=Website%20Status&up_message=Up%20%26%20Online&url=https%3A%2F%2Fportfolio-webapp-2611.web.app)
 
-**Live Preview: 👉🏽 [PORTFOLIO](https://portfolio-webapp-2611.web.app/#/)**
+**Live Preview: 👉🏽 [PORTFOLIO](https://bhaveshj.web.app/)**
 
 ✨ Hello there, I'm Bhavesh Joshi. This is my personal potrfolio webapp, built with Flutter. Do check it out!
