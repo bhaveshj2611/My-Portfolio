@@ -1,15 +1,5 @@
 {
   "projects": {
     "default": "portfolio-webapp-2611"
-  },
-  "targets": {
-    "portfolio-webapp-2611": {
-      "hosting": {
-        "bhaveshj": [
-          "bhaveshj"
-        ]
-      }
-    }
-  },
-  "etags": {}
+  }
 }

@@ -20,19 +20,20 @@ class _AvatarState extends State<Avatar> {
         });
       },
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 300),
         margin: const EdgeInsets.all(0),
-        padding: const EdgeInsets.all(15),
+        padding:
+            isHovering ? const EdgeInsets.all(15) : const EdgeInsets.all(10),
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
                 color: isHovering
-                    ? const Color.fromARGB(0, 70, 129, 177)
+                    ? const Color.fromARGB(255, 0, 78, 141)
                     : const Color.fromARGB(255, 255, 255, 255),
-                width: 3)),
-        child: CircleAvatar(
-          foregroundImage: const AssetImage(profile32),
-          backgroundColor: Theme.of(context).colorScheme.background,
+                width: isHovering ? 5 : 3)),
+        child: const CircleAvatar(
+          foregroundImage: AssetImage(profile2),
+          backgroundColor: Color.fromARGB(255, 255, 255, 255),
           radius: 120,
         ),
       ),

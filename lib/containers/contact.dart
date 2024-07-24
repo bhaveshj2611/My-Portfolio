@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:portfolio_webapp/widgets/contact_social.dart';
-import 'package:portfolio_webapp/widgets/mailcomp.dart';
+import 'package:portfolio_webapp/widgets/form.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class Contact extends StatefulWidget {
@@ -27,57 +25,50 @@ class _ContactState extends State<Contact> {
 
 Widget mobileContact() {
   return Container(
-    // height: 300,
-    width: double.infinity,
-    decoration: const BoxDecoration(
-      gradient: LinearGradient(
-        colors: [
+      height: 600,
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(colors: [
           Color.fromARGB(255, 16, 70, 124),
-          Color.fromARGB(255, 10, 120, 210),
-        ],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
+          Color.fromARGB(255, 10, 120, 210)
+        ], begin: Alignment.topLeft, end: Alignment.bottomRight),
       ),
-    ),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        const SizedBox(height: 40),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Text(
-            "C O N T A C T",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 30,
-              color: Colors.white.withOpacity(0.8),
-              fontWeight: FontWeight.w700,
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 40,
+          ),
+          Container(
+            width: 250,
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 255, 255, 255),
+              borderRadius: BorderRadius.circular(40),
             ),
+            child: const Text("Contact",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold)),
           ),
-        ),
-        const SizedBox(height: 30),
-        const Text(
-          "Connect with me on Socials",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 18,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+          const SizedBox(
+            height: 50,
           ),
-        ),
-        const SizedBox(height: 20),
-        const FooterIcons(),
-        const SizedBox(height: 10),
-        const MailComponent(),
-        const SizedBox(height: 20),
-      ],
-    ),
-  );
+          Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(60)),
+            child: Container(
+              child: Container(
+                child: const Forms(),
+              ),
+            ),
+          )
+        ],
+      ));
 }
 
 Widget desktopContact() {
   return Container(
-      height: 550,
+      height: 580,
       width: double.infinity,
       decoration: const BoxDecoration(
         gradient: LinearGradient(colors: [
@@ -92,35 +83,32 @@ Widget desktopContact() {
             height: 40,
           ),
           Container(
-          
-            child: Text(
-              "C O N T A C T",
-            
-              style: TextStyle(
-                fontSize: 42,
-                color:
-                    const Color.fromARGB(255, 255, 255, 255).withOpacity(0.6),
-                fontWeight: FontWeight.w700,
-              ),
+            width: 250,
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 255, 255, 255),
+              borderRadius: BorderRadius.circular(40),
             ),
+            child: const Text("Contact",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold)),
           ),
           const SizedBox(
             height: 50,
           ),
-          const SizedBox(
-            width: double.maxFinite,
-        
-            child: Text("Connect with me on Socials",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 24,
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    fontWeight: FontWeight.bold)),
-          ),
-          const SizedBox(height: 30),
-          const FooterIcons(),
-          const SizedBox(height: 30),
-          const MailComponent(),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 150),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(60)),
+            child: Container(
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 100),
+                child: const Forms(),
+              ),
+            ),
+          )
         ],
       ));
 }

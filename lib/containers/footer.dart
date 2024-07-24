@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:portfolio_webapp/widgets/footer_icons.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class Footer extends StatefulWidget {
@@ -24,32 +24,39 @@ class _FooterState extends State<Footer> {
 }
 
 Widget mobileAbout() {
-  return const SizedBox(
-      height: 40,
-      // color: Colors.white,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+  return Container(
+      color: Colors.white,
+      child: const Column(
         children: [
-          
-
-          Text(
-            'Developed by Bhavesh 👨🏻‍💻❤️',
-            style: TextStyle(fontSize: 10),
-          )
+          SizedBox(
+            height: 10,
+          ),
+          FooterIcons(),
+          SizedBox(
+            height: 25,
+          ),
+          Text('©️ Bhavesh Joshi'),
+          SizedBox(
+            height: 15,
+          ),
         ],
       ));
 }
 
 Widget desktopAbout() {
-  return const SizedBox(
-      height: 40,
-    
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+  return Container(
+      height: 110,
+      color: Colors.white,
+      child: const Column(
         children: [
-          
-
-          Text('Developed by Bhavesh 👨🏻‍💻❤️')
+          SizedBox(
+            height: 10,
+          ),
+          FooterIcons(),
+          SizedBox(
+            height: 35,
+          ),
+          Text('©️ Bhavesh Joshi')
         ],
       ));
 }
